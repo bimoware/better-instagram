@@ -13,12 +13,14 @@ import messageData from "../database/messages.json";
 import reactionData from "../database/reactions.json";
 import noteData from "../database/notes.json";
 
+let n = 0;
+
 let client = new ClientClass("3");
 const chats = chatData.map(
 	(chat) =>
 		new ChatClass(
 			client,
-			chat.id,
+			String(n++),
 			chat.type,
 			chat.userIds,
 			chat.icon,
@@ -29,13 +31,13 @@ const chats = chatData.map(
 );
 const users = userData.map(
 	(user) =>
-		new UserClass(client, user.id, user.pfp, user.username, user.displayName, user.isSelf ?? false)
+		new UserClass(client, String(n++), user.pfp, user.username, user.displayName, user.isSelf ?? false)
 );
 const messages = messageData.map(
 	(message) =>
 		new MessageClass(
 			client,
-			message.id,
+			String(n++),
 			message.chatId,
 			message.userId,
 			message.type ?? 0,
@@ -48,7 +50,7 @@ const reactions = reactionData.map(
 	(reaction) =>
 		new ReactionClass(
 			client,
-			reaction.id,
+			String(n++),
 			reaction.messageId,
 			reaction.emoji ?? "❤️",
 			reaction.userId,

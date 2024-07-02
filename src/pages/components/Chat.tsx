@@ -7,6 +7,7 @@ function Chat({ chat, isCurrent }: { chat: ChatClass; isCurrent: boolean }) {
 	const chatPreview = chat.lastMessage?.toIconPreview();
 	return (
 		<div
+			data-chatid={chat.id}
 			className={`select-none
 		flex items-center px-2 gap-3 w-full h-[5vw]
 		transition ease-in-out
