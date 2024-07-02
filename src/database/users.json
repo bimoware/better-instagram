@@ -1,0 +1,33 @@
+[
+    {
+        "id": "3",
+        "pfp": "/images/1.png",
+        "username": "izuku.midoriya",
+        "displayName": "Deku",
+        "isSelf": true
+    },
+    {
+        "id": "4",
+        "pfp": "/images/2.png",
+        "username": "shoto.todoroki",
+        "displayName": "Shoto"
+    },
+    {
+        "id": "5",
+        "pfp": "/images/3.png",
+        "username": "katsuki.bakugo",
+        "displayName": "Bakugo"
+    },
+    {
+        "id": "6",
+        "pfp": "/images/4.png",
+        "username": "denki.kaminari",
+        "displayName": "Pikachu"
+    },
+    {
+        "id": "7",
+        "pfp": "/images/5.png",
+        "username": "ochaco.uraraka",
+        "displayName": "Uravity"
+    }
+]

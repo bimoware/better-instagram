@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background-color: black;
+	color: white;
+}
+
+@layer components {
+	.title {
+		@apply flex gap-2 m-8 text-5xl font-bold;
+	}
+	.icon-btn {
+		@apply cursor-pointer transition hover:scale-110 select-none
+	}
+	.panel {
+		@apply rounded-2xl border-4 border-neutral-900
+	}
+}
+
+.overflow-y-auto {
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-neutral-700) var(--color-neutral-900)
+}

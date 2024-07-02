@@ -1,0 +1,21 @@
+[
+	{
+		"id": "8",
+		"type": 0,
+		"userIds": ["4"],
+		"pinned": true
+	},
+	{
+		"id": "9",
+		"type": 0,
+		"userIds": ["5"]
+	},
+	{
+		"id": "10",
+		"type": 1,
+		"userIds": ["3", "4", "5", "6", "7"],
+		"icon": "/images/6.png",
+		"name": "class A on drugs",
+		"seen": false
+	}
+]

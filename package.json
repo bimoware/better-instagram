@@ -1,0 +1,31 @@
+{
+	"name": "better-instagram",
+	"private": false,
+	"version": "1.0.0",
+	"type": "module",
+	"homepage": "https://myusername.github.io/my-app",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@tanstack/react-router": "^1.40.0",
+		"dayjs": "^1.11.11",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-router-dom": "^6.23.1",
+		"react-tiny-popover": "^8.0.4"
+	},
+	"devDependencies": {
+		"@types/node": "^20.14.8",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"@vitejs/plugin-react": "^4.3.1",
+		"autoprefixer": "^10.4.19",
+		"postcss": "^8.4.38",
+		"tailwindcss": "^3.4.4",
+		"typescript": "^5.2.2",
+		"vite": "^5.3.1"
+	}
+}
