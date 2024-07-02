@@ -73,8 +73,12 @@ export class UserClass {
 		public pfp: string,
 		public username: string,
 		public displayName: string,
+		public followerIds: string[],
 		public isSelf?: boolean
 	) {}
+	get followers(){
+		return this.followerIds.map(id => this.client.users.find(user => user.id === id)!);
+	}
 }
 
 export class ReactionClass {

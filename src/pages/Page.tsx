@@ -7,12 +7,16 @@ import Note from "./components/Note.tsx";
 import UserIntro from "./components/UserIntro.tsx";
 
 export default function TestPage() {
-	const [currentChatId, setCurrentChatId] = useState(Array.from(client.chats.values()).shift()?.id!);
-	const currentChat = client.chats.find(chat => chat.id === currentChatId)!
+	const [currentChatId, setCurrentChatId] = useState(
+		Array.from(client.chats.values()).shift()?.id!
+	);
+	const currentChat = client.chats.find((chat) => chat.id === currentChatId)!;
 	return (
 		<div className="h-screen">
 			<div className="flex h-1/6 panel gap-1">
-			{client.notes.map(note => <Note note={note}/>)}
+				{client.notes.map((note) => (
+					<Note note={note} />
+				))}
 			</div>
 			<div className="flex h-5/6">
 				<div className="w-96 overflow-y-scroll overflow-x-hidden panel">
@@ -23,7 +27,7 @@ export default function TestPage() {
 					/>
 				</div>
 				<div className="w-full overflow-auto panel">
-					{currentChat.type === 0 ? <UserIntro user={currentChat.users[0]}/> : <></>}
+					{currentChat.type === 0 ? <UserIntro user={currentChat.users[0]} /> : <></>}
 					{messagesToMessageGroups(currentChat.messages).map((msgs, i) => (
 						<div key={i}>
 							<MessageGroup messages={msgs} />

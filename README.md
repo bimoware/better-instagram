@@ -74,3 +74,12 @@ $ npm run dev
 - [ ] Input message
 - [ ] Snapchat-like avatar peeking with profile picture
 - [ ] Reactions
+
+# Patch Notes
+
+## 02 - 07 - 2024
+Put followers in the json database (now instead of having all of the users in everyone's followers list, only the ones selected.)
+### Before:
+![](./meta/patch-1.mp4)
+### After:
+![](./meta/patch-1-2.mp4)

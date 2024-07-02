@@ -29,7 +29,15 @@ const chats = chatData.map(
 );
 const users = userData.map(
 	(user) =>
-		new UserClass(client, user.id, user.pfp, user.username, user.displayName, user.isSelf ?? false)
+		new UserClass(
+			client,
+			user.id,
+			user.pfp,
+			user.username,
+			user.displayName,
+			user.followers || [],
+			user.isSelf ?? false
+		)
 );
 const messages = messageData.map(
 	(message) =>
