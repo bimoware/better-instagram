@@ -4,9 +4,11 @@ import { useState } from "react";
 import { messagesToMessageGroups } from "../scripts/Util.ts";
 import MessageGroup from "./components/MessageGroup.tsx";
 import Note from "./components/Note.tsx";
+import UserIntro from "./components/UserIntro.tsx";
 
 export default function TestPage() {
-	const [currentChat, setCurrentChat] = useState(Array.from(client.chats.values()).shift()?.id!);
+	const [currentChatId, setCurrentChatId] = useState(Array.from(client.chats.values()).shift()?.id!);
+	const currentChat = client.chats.find(chat => chat.id === currentChatId)!
 	return (
 		<div className="h-screen">
 			<div className="flex h-1/6 panel gap-1">
@@ -15,13 +17,14 @@ export default function TestPage() {
 			<div className="flex h-5/6">
 				<div className="w-96 overflow-y-scroll overflow-x-hidden panel">
 					<Chats
-						setCurrentChat={setCurrentChat}
-						current={currentChat}
+						setCurrentChat={setCurrentChatId}
+						current={currentChatId}
 						chats={Array.from(client.chats.values())}
 					/>
 				</div>
 				<div className="w-full overflow-auto panel">
-					{messagesToMessageGroups(client.chats.find(chat => chat.id === currentChat)!?.messages).map((msgs, i) => (
+					{currentChat.type === 0 ? <UserIntro user={currentChat.users[0]}/> : <></>}
+					{messagesToMessageGroups(currentChat.messages).map((msgs, i) => (
 						<div key={i}>
 							<MessageGroup messages={msgs} />
 						</div>
