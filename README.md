@@ -1,5 +1,5 @@
 # Better Instagram
-![](./demo/banner.png)
+![](./public/images/banner.png)
 # Table of contents
 - [Introduction?](#what-is-this)
 - [Contributing](#contributing)
