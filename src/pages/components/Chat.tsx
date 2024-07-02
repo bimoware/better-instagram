@@ -48,7 +48,7 @@ function Chat({ chat, isCurrent }: { chat: ChatClass; isCurrent: boolean }) {
 				)}
 			</div>
 			{chat.pinned ? (
-				<div className="w-1/6 self-center rotate-45">
+				<div className="w-1/6 self-start mt-1 rotate-45">
 					<img src={pinIcon} />
 				</div>
 			) : (
