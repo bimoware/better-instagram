@@ -10,7 +10,7 @@ function Chat({ chat, isCurrent }: { chat: ChatClass; isCurrent: boolean }) {
 			data-chatid={chat.id}
 			key={chat.id}
 			className={`select-none
-		flex items-center px-2 gap-3 w-full h-[5vw]
+		flex items-center px-2 gap-1 w-full h-[5vw]
 		transition ease-in-out
 		rounded-3xl p-1 group
 		${!chat.seen || isCurrent ? "bg-neutral-900" : "bg-neutral-950"}
@@ -19,7 +19,7 @@ function Chat({ chat, isCurrent }: { chat: ChatClass; isCurrent: boolean }) {
 		hover:cursor-pointer ${isCurrent ? "cursor-pointer" : ""}
 		`}
 		>
-			<div className="h-full aspect-square">
+			<div className="h-full aspect-square mr-1">
 				<img
 					className={`rounded-3xl
 						group-hover:translate-x-1 h-full
@@ -27,7 +27,7 @@ function Chat({ chat, isCurrent }: { chat: ChatClass; isCurrent: boolean }) {
 					src={chat.type === 0 ? chat.users[0].pfp : chat.icon || groupIcon}
 				/>
 			</div>
-			<div className="w-full">
+			<div className="w-4/6 overflow-hidden">
 				<Name
 					className="text-xl"
 					type={chat.type}
@@ -48,7 +48,7 @@ function Chat({ chat, isCurrent }: { chat: ChatClass; isCurrent: boolean }) {
 				)}
 			</div>
 			{chat.pinned ? (
-				<div className="w-1/6 self-start mt-1 rotate-45">
+				<div className="max-w-1/6 self-start mt-1 rotate-12 ml-auto">
 					<img src={pinIcon} />
 				</div>
 			) : (

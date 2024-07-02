@@ -10,8 +10,8 @@ export default function Name({
 	className?:string;
 }) {
 	return (
-		<div className={`${className || ""} inline-flex gap-1 items-baseline`}>
-			<span className={`cursor-pointer font-semibold select-none`}>{displayName}</span>
+		<div className={`${className || ""} inline-flex gap-1 items-baseline w-fit`}>
+			<span className={`whitespace-nowrap text-ellipsis cursor-pointer font-semibold select-none`}>{displayName}</span>
 			{add ? (
 				<span
 					className={`text-xs opacity-80
