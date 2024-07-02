@@ -10,7 +10,7 @@ import "./scripts/Client.ts";
 // Creating the route for the browser
 const router = createBrowserRouter([
 	{
-		path: "/better-instagram/",
+		path: "/chat/",
 		element: <Main />,
 	},
 	{

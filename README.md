@@ -80,6 +80,6 @@ $ npm run dev
 ## 02 - 07 - 2024
 Put followers in the json database (now instead of having all of the users in everyone's followers list, only the ones selected.)
 ### Before:
-![](./meta/patch-1.mp4)
+![](./meta/patch-1-1.mp4)
 ### After:
 ![](./meta/patch-1-2.mp4)
