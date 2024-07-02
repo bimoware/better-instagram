@@ -9,7 +9,7 @@ export default function TestPage() {
 	const [currentChat, setCurrentChat] = useState(Array.from(client.chats.values()).shift()?.id!);
 	return (
 		<div className="h-screen">
-			<div className="flex h-1/6 panel gap-2">
+			<div className="flex h-1/6 panel gap-1">
 			{client.notes.map(note => <Note note={note}/>)}
 			</div>
 			<div className="flex h-5/6">

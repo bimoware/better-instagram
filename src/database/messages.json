@@ -34,25 +34,25 @@
 	{
 		"id": "15",
 		"chatId": "8",
+		"userId": "3",
+		"type": 0,
+		"data": "Oh btw i have smt to tell you hold on",
+		"timestamp": 1719845241000
+	},
+	{
+		"id": "16",
+		"chatId": "8",
 		"userId": "4",
 		"type": 1,
 		"data": "/audios/pedro-song.mp3",
 		"timestamp": 1719816241000
 	},
 	{
-		"id": "16",
-		"chatId": "8",
-		"userId": "3",
-		"type": 0,
-		"data": "oh sure hol on",
-		"timestamp": 1719845241000
-	},
-	{
 		"id": "17",
 		"chatId": "8",
 		"userId": "3",
-		"type": 2,
-		"data": "/images/screenshot.png",
+		"type": 0,
+		"data": "Seriously",
 		"timestamp": 1719865241000
 	},
 	{
@@ -68,7 +68,7 @@
 		"chatId": "8",
 		"userId": "4",
 		"type": 0,
-		"data": "Oh and send me that one vid btw",
+		"data": "I had to do it this way",
 		"timestamp": 1719816245000,
         "reactions": ["27"]
 	},
@@ -85,7 +85,7 @@
 		"chatId": "8",
 		"userId": "3",
 		"type": 0,
-		"data": "o",
+		"data": "fuck u",
 		"timestamp": 1719865241000
 	},
 	{
