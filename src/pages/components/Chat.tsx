@@ -8,19 +8,19 @@ function Chat({ chat, isCurrent }: { chat: ChatClass; isCurrent: boolean }) {
 	return (
 		<div
 			className={`select-none
-		flex items-center px-2 gap-3 w-[40vw]
+		flex items-center px-2 gap-3 w-full h-[5vw]
 		transition ease-in-out
 		rounded-3xl p-1 group
 		${!chat.seen || isCurrent ? "bg-neutral-900" : "bg-neutral-950"}
 		hover:bg-neutral-900 ${isCurrent ? "bg-neutral-900" : ""}
 		hover:translate-x-3 ${isCurrent ? "translate-x-3" : ""}
 		hover:cursor-pointer ${isCurrent ? "cursor-pointer" : ""}
-		h-20`}
+		`}
 		>
-			<div className="w-1/6">
+			<div className="h-full aspect-square">
 				<img
 					className={`rounded-3xl
-						group-hover:translate-x-1
+						group-hover:translate-x-1 h-full
 				transition`}
 					src={chat.type === 0 ? chat.users[0].pfp : chat.icon || groupIcon}
 				/>
