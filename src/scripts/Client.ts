@@ -13,8 +13,6 @@ import messageData from "../database/messages.json";
 import reactionData from "../database/reactions.json";
 import noteData from "../database/notes.json";
 
-let n = 0;
-
 let client = new ClientClass("3");
 const chats = chatData.map(
 	(chat) =>
