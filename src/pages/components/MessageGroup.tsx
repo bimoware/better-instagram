@@ -3,7 +3,6 @@ import { MessageClass } from "../../scripts/Classes";
 import Name from "./Name";
 
 export default function MessageGroup({ messages }: { messages: MessageClass[] }) {
-	console.log(messages[0]);
 	return (
 		<div
 			className={`

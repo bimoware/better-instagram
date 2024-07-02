@@ -20,7 +20,7 @@ const chats = chatData.map(
 	(chat) =>
 		new ChatClass(
 			client,
-			String(n++),
+			chat.id,
 			chat.type,
 			chat.userIds,
 			chat.icon,
@@ -31,13 +31,13 @@ const chats = chatData.map(
 );
 const users = userData.map(
 	(user) =>
-		new UserClass(client, String(n++), user.pfp, user.username, user.displayName, user.isSelf ?? false)
+		new UserClass(client, user.id, user.pfp, user.username, user.displayName, user.isSelf ?? false)
 );
 const messages = messageData.map(
 	(message) =>
 		new MessageClass(
 			client,
-			String(n++),
+			message.id,
 			message.chatId,
 			message.userId,
 			message.type ?? 0,
@@ -50,7 +50,7 @@ const reactions = reactionData.map(
 	(reaction) =>
 		new ReactionClass(
 			client,
-			String(n++),
+			reaction.id,
 			reaction.messageId,
 			reaction.emoji ?? "❤️",
 			reaction.userId,
@@ -58,7 +58,7 @@ const reactions = reactionData.map(
 		)
 );
 
-const notes = noteData.map((note) => new NoteClass(client, note.userId, note.text));
+const notes = noteData.map((note) => new NoteClass(client, note.id, note.userId, note.text));
 
 client.setData({ messages, users, chats, reactions, notes });
 

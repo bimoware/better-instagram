@@ -151,6 +151,7 @@ export class MessageClass {
 export class NoteClass {
 	constructor(
 		public client: ClientClass,
+		public id: string, 
 		public userId: string,
 		public text: string
 	) {}
