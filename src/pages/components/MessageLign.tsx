@@ -11,7 +11,6 @@ import moreIcon from "/icons/more.svg";
 import { useState } from "react";
 import { ArrowContainer, Popover } from "react-tiny-popover";
 import MessageMenu from "./MessageMenu";
-import GroupIcon from "./GroupIcon";
 
 export default function Message({ message }: { message: MessageClass }) {
 	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
