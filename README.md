@@ -1,14 +1,16 @@
 # Better Instagram
 ![](./public/images/banner.png)
 # Table of contents
-- [Introduction?](#what-is-this)
-- [Contributing](#contributing)
+- [Demo](#emo)
+- [Introduction](#what-is-this)
 - [Installing](#installing)
+- [Contributing](#contributing)
 - [Features](#features)
 
 ----
 ----
-
+# Demo
+![](./meta/demo.mp4)
 # Introduction
 Instagram developpers don't make their web version good to attract people into their mobile version. This is pretty sad since this app has so much influence & potential yet is still greedy.
 
@@ -17,8 +19,6 @@ So I made my own prototype version of what Instagram should look like with all t
 Also, I have no life so might as well remake instagram
 
 Right now, only the chat page is available & you can not interact with it (send messages, reply etc..) When i'll figure out sql databases. Maybe
-# Contributing
-Feel free to fork this repo & make changes you like. But if it's simply changing a padding to be a pixel wider. I won't accept it 😹
 # Installing
 👉 In your file explorer, go to a folder
 > [!IMPORTANT]
@@ -74,3 +74,6 @@ $ npm run dev
 - [ ] Input message
 - [ ] Snapchat-like avatar peeking with profile picture
 - [ ] Reactions
+
+# Contributing
+Feel free to fork this repo & make changes you like. But if it's simply changing a padding to be a pixel wider. I won't accept it 😹
