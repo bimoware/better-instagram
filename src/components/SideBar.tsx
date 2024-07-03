@@ -57,6 +57,7 @@ function IconBox({ link }: { link: any }) {
 				onMouseEnter={() => setIsPopoverOpen(true)}
 				onMouseLeave={() => setIsPopoverOpen(false)}
 				className={`transition hover:cursor-pointer
+					select-none
 hover:bg-neutral-400 hover:bg-opacity-5 rounded-2xl group
 ${link.id === "user" ? "" : "m-1"}`}
 			>
