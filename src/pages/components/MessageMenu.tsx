@@ -1,4 +1,4 @@
-import emojiIcon from "/icons/emoji.svg";
+import reactIcon from "/icons/react.svg";
 import copyIcon from "/icons/copy.svg";
 import replyIcon from "/icons/reply.svg";
 import editIcon from "/icons/edit.svg";
@@ -24,7 +24,7 @@ export default function MessageMenu({
 					},
 					{
 						name: "React",
-						icon: emojiIcon,
+						icon: reactIcon,
 					},
 					{
 						name: "Get ID",
