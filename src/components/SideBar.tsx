@@ -1,5 +1,5 @@
 import { ArrowContainer, Popover } from "react-tiny-popover";
-import { JSX, useState } from "react";
+import { useState } from "react";
 
 import client from "../scripts/Client";
 
