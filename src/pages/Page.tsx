@@ -5,6 +5,7 @@ import { arrangeMessages } from "../scripts/Util.ts";
 import MessageGroup from "./components/MessageGroup.tsx";
 import Note from "./components/Note.tsx";
 import UserIntro from "./components/UserIntro.tsx";
+import MessageInput from "./components/MessageInput.tsx";
 
 export default function TestPage() {
 	const [currentChatId, setCurrentChatId] = useState(
@@ -18,7 +19,7 @@ export default function TestPage() {
 					<Note note={note} />
 				))}
 			</div>
-			<div className="flex h-5/6">
+			<div className="flex h-5/6 overflow-y-clip">
 				<div className="w-96 overflow-y-scroll overflow-x-hidden panel">
 					<Chats
 						setCurrentChat={setCurrentChatId}
@@ -26,8 +27,8 @@ export default function TestPage() {
 						chats={Array.from(client.chats.values())}
 					/>
 				</div>
-				<div className="w-full h-full">
-					<div className="w-full overflow-auto panel h-5/6">
+				<div className="w-full">
+					<div className="overflow-y-scroll h-[75vh] panel">
 						{currentChat.type === 0 ? <UserIntro user={currentChat.users[0]} /> : <></>}
 						{arrangeMessages(currentChat.messages).map((msgs, i) => (
 							<div key={i}>
@@ -35,7 +36,7 @@ export default function TestPage() {
 							</div>
 						))}
 					</div>
-					<div className="panel h-1/6">!!</div>
+					<MessageInput/>
 				</div>
 			</div>
 		</div>

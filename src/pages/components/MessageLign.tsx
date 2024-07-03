@@ -12,10 +12,10 @@ import { useState } from "react";
 import { ArrowContainer, Popover } from "react-tiny-popover";
 import MessageMenu from "./MessageMenu";
 
-export default function Message({ message }: { message: MessageClass }) {
+export default function MessageLign({ message }: { message: MessageClass }) {
 	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 	return (
-		<div className="flex flex-col" id={`message-${message.id}`}>
+		<div className="flex flex-col" key={message.id} id={`message-${message.id}`}>
 			{message.reply ? (
 				<ReplyBubble
 					pfp={message.reply.user.pfp}
@@ -83,9 +83,10 @@ export default function Message({ message }: { message: MessageClass }) {
 			</div>
 			{message.reactions.length ? (
 				<div className="flex h-6 gap-2 mx-2">
-					{arrangeReactions(message.reactions).map((reactionList) => {
+					{arrangeReactions(message.reactions).map((reactionList,i) => {
 						return (
 							<div
+							key={i}
 								className="flex bg-neutral-800 rounded-full w-fit h-full items-center
 						gap-1 px-2 select-none hover:cursor-pointer
 						-translate-y-2"

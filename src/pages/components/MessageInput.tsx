@@ -1,54 +1,28 @@
-import smile from "/icons/smile.svg";
-import smile2 from "/icons/smile-2.svg";
-import send from "/icons/send.svg";
-
-import { useState } from "react";
-
+import emojiIcon from "/icons/emoji.svg";
+import arrowUpIcon from "/icons/up.svg";
 export default function MessageInput() {
-	const [isEmojiHovered, setEmojiHover] = useState(false);
-	const [canSend, setCanSend] = useState(false);
-	const [text, setText] = useState("");
-	const [inputFocused, setInputFocus] = useState(false);
-
 	return (
-		<div
-			className={`hover:cursor-not-allowed
-				p-2 rounded-full gap-3 border-2
-			${inputFocused ? "border-neutral-900" : "border-transparent"}
-		w-full h-10 flex`}
-		>
+		<div className="bg-neutral-950 w-full rounded-3xl
+        p-1 flex gap-1
+        items-start min-h-8 h-fit
+        focus-within:border-4
+        focus-within:border-neutral-900">
 			<img
-				src={isEmojiHovered ? smile2 : smile}
-				className="hover:cursor-not-allowed
-				w-1/12 transition cursor-pointer
-        hover:scale-110 hover:-translate-y-1 hover:-rotate-6"
-				onMouseEnter={() => setEmojiHover(true)}
-				onMouseLeave={() => setEmojiHover(false)}
+				src={emojiIcon}
+				className="h-5/6 m-2 transition hover:scale-90 hover:cursor-pointer select-none"
 			/>
-			<input
-				disabled
-				value={text}
-				onBlur={() => setInputFocus(false)}
-				onFocus={() => setInputFocus(true)}
-				onChange={(ev) => {
-					if (ev.currentTarget.value === "") setCanSend(false);
-					setText(ev.currentTarget.value);
-				}}
-				className="text-xl text-nowrap leading-4
-                align-items w-full
-				hover:cursor-not-allowed
-            focus:outline-none resize-none bg-inherit "
+			<div
+				className="focus:outline-none
+                self-center
+            w-full
+            min-h-full
+            rounded-md
+            resize-none"
+				contentEditable
 			/>
 			<img
-				src={send}
-				data-enabled={canSend}
-				className="w-1/12 transition opacity-
-        hover:translate-x-1
-		hover:cursor-not-allowed
-		hover:-rotate-[45deg]
-        text-blue-100
-        -data-[enabled]:cursor-pointer
-		data-[enabled]:opacity-100"
+				src={arrowUpIcon}
+				className="h-5/6 m-2 transition hover:-translate-y-1 hover:cursor-pointer select-none"
 			/>
 		</div>
 	);
