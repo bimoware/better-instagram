@@ -1,4 +1,4 @@
-import MessageInput from "./components/MessageInput";
+import ScrollDown from "./components/ScrollDown";
 export default function TestPage() {
-	return <MessageInput/>
+	return <ScrollDown scroll={() =>{}}/>
 }
