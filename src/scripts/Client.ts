@@ -58,7 +58,7 @@ const reactions = reactionData.map(
 			client,
 			reaction.id,
 			reaction.messageId,
-			reaction.emoji ?? "❤️",
+			// reaction.emoji ?? "❤️",
 			reaction.userId,
 			reaction.timestamp
 		)
@@ -67,5 +67,5 @@ const reactions = reactionData.map(
 const notes = noteData.map((note) => new NoteClass(client, note.id, note.userId, note.text));
 
 client.setData({ messages, users, chats, reactions, notes });
-
+Object.defineProperty(window,"client",client);
 export default client;

@@ -3,19 +3,20 @@ import Bubble from "./Bubble";
 import VoiceBubble from "./VoiceMessage";
 import VideoMessage from "./VideoMessage";
 import ImageMessage from "./ImageMessage";
-
+import redHeartIcon from "/emojis/red-heart.png";
 import { MessageClass } from "../../scripts/Classes";
-import { isOnlyEmojis, timeToString } from "../../scripts/Util";
+import { arrangeReactions, isOnlyEmojis, timeToString } from "../../scripts/Util";
 
 import moreIcon from "/icons/more.svg";
 import { useState } from "react";
 import { ArrowContainer, Popover } from "react-tiny-popover";
 import MessageMenu from "./MessageMenu";
+import GroupIcon from "./GroupIcon";
 
 export default function Message({ message }: { message: MessageClass }) {
 	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 	return (
-		<div className="flex flex-col" id={"message-" + message.id}>
+		<div className="flex flex-col" id={`message-${message.id}`}>
 			{message.reply ? (
 				<ReplyBubble
 					pfp={message.reply.user.pfp}
@@ -81,6 +82,24 @@ export default function Message({ message }: { message: MessageClass }) {
 					/>
 				</Popover>
 			</div>
+			{message.reactions.length ? (
+				<div className="flex h-6 gap-2 mx-2">
+					{arrangeReactions(message.reactions).map((reactionList) => {
+						return (
+							<div
+								className="flex bg-neutral-800 rounded-full w-fit h-full items-center
+						gap-1 px-2 select-none hover:cursor-pointer
+						-translate-y-2"
+							>
+								<span className="font-extrabold">{reactionList.length}</span>
+								<img className="h-4/6" src={redHeartIcon} />
+							</div>
+						);
+					})}
+				</div>
+			) : (
+				<></>
+			)}
 		</div>
 	);
 }

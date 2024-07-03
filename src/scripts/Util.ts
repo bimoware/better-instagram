@@ -1,38 +1,37 @@
-import { MessageClass } from "./Classes";
+import { MessageClass, ReactionClass } from "./Classes";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 import fr from "dayjs/locale/fr";
 dayjs.locale(fr);
-import updateLocale from 'dayjs/plugin/updateLocale' 
-dayjs.extend(updateLocale)
-dayjs.updateLocale('fr', {
+import updateLocale from "dayjs/plugin/updateLocale";
+dayjs.extend(updateLocale);
+dayjs.updateLocale("fr", {
 	relativeTime: {
-	  future: "dans %s",
-	  past: "%s",
-	  s: 'À l\'instant',
-	  m: "a minute",
-	  mm: "%dm",
-	  h: "1h",
-	  hh: "%dh",
-	  d: "1j",
-	  dd: "%dj",
-	  M: "1 mois",
-	  MM: "%d mois",
-	  y: "1 an",
-	  yy: "%d ans"
-	}
-  })
+		future: "dans %s",
+		past: "%s",
+		s: "À l'instant",
+		m: "a minute",
+		mm: "%dm",
+		h: "1h",
+		hh: "%dh",
+		d: "1j",
+		dd: "%dj",
+		M: "1 mois",
+		MM: "%d mois",
+		y: "1 an",
+		yy: "%d ans",
+	},
+});
 
-
-function messagesToMessageGroups(messages: MessageClass[]) {
+function arrangeMessages(messages: MessageClass[]) {
 	const msgGroups: MessageClass[][] = [];
 	for (const i of Array.from(messages.keys())) {
 		if (i === 0) {
 			msgGroups.push([messages[i]]);
-			continue
-		};
+			continue;
+		}
 		const lastMsgGroup = msgGroups[msgGroups.length - 1];
 		const lastMessage = lastMsgGroup[lastMsgGroup.length - 1];
 		if (messages[i].userId == lastMessage.userId) {
@@ -42,6 +41,20 @@ function messagesToMessageGroups(messages: MessageClass[]) {
 		}
 	}
 	return msgGroups;
+}
+
+function arrangeReactions(reactions: ReactionClass[]) {
+	let newReactions = [];
+	for (let reaction of reactions) {
+		if (!newReactions.length) newReactions.push([reaction]);
+		let lastReaction = newReactions[newReactions.length - 1];
+		// if (lastReaction[lastReaction.length - 1] == reaction) {
+			lastReaction.push(reaction);
+		// } else {
+		// 	newReactions.push([reaction]);
+		// }
+	}
+	return newReactions;
 }
 
 function timeToString(timestamp: number, type: number) {
@@ -56,8 +69,7 @@ function timeToString(timestamp: number, type: number) {
 	}
 }
 
-function isOnlyEmojis(string:string){
-	return string.match(/^\p{Extended_Pictographic}+$/u)
+function isOnlyEmojis(string: string) {
+	return string.match(/^\p{Extended_Pictographic}+$/u);
 }
-
-export { isOnlyEmojis, timeToString, messagesToMessageGroups };
+export { isOnlyEmojis, timeToString, arrangeMessages, arrangeReactions };

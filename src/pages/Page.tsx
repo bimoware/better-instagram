@@ -1,7 +1,7 @@
 import client from "../scripts/Client.ts";
 import Chats from "./components/Chats";
 import { useState } from "react";
-import { messagesToMessageGroups } from "../scripts/Util.ts";
+import { arrangeMessages } from "../scripts/Util.ts";
 import MessageGroup from "./components/MessageGroup.tsx";
 import Note from "./components/Note.tsx";
 import UserIntro from "./components/UserIntro.tsx";
@@ -28,7 +28,7 @@ export default function TestPage() {
 				</div>
 				<div className="w-full overflow-auto panel">
 					{currentChat.type === 0 ? <UserIntro user={currentChat.users[0]} /> : <></>}
-					{messagesToMessageGroups(currentChat.messages).map((msgs, i) => (
+					{arrangeMessages(currentChat.messages).map((msgs, i) => (
 						<div key={i}>
 							<MessageGroup messages={msgs} />
 						</div>

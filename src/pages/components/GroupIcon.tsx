@@ -8,6 +8,8 @@ export default function GroupIcon({ users }: { users: UserClass[] }) {
 		<span className="inline-flex">
 				{users.map((user, i) => {
 					const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+					let whitelist = "-translate-x-0 & -translate-x-4 & -translate-x-8 & -translate-x-12 & -translate-x-16"
+					if(!whitelist) return;
 					return (
 						<Popover
 							onClickOutside={() => setIsPopoverOpen(false)}
@@ -35,10 +37,10 @@ export default function GroupIcon({ users }: { users: UserClass[] }) {
 							<img
 								key={i}
 								className={`
-                    w-6 scale-[200%]
+                    w-20 -translate-x-${i * 4}
                 rounded-full
                 border border-neutral-950
-                transition hover:-translate-x-2
+                transition hover:-translate-x-3
                 shadow-neutral-100 shadow-inner`}
 								src={user.pfp}
 								onMouseEnter={() => setIsPopoverOpen(true)}

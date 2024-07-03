@@ -86,12 +86,11 @@ export class ReactionClass {
 		public client: ClientClass,
 		public id: string,
 		public messageId: string,
-		public emoji: string,
 		public userId: string,
 		public timestamp: number
 	) {}
 	get message() {
-		return this.client.messages.find((user) => user.id === this.userId)!;
+		return this.client.messages.find((message) => message.id === this.messageId)!;
 	}
 	get user() {
 		return this.client.users.find((user) => user.id === this.userId)!;
