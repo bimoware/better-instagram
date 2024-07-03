@@ -26,13 +26,16 @@ export default function TestPage() {
 						chats={Array.from(client.chats.values())}
 					/>
 				</div>
-				<div className="w-full overflow-auto panel">
-					{currentChat.type === 0 ? <UserIntro user={currentChat.users[0]} /> : <></>}
-					{arrangeMessages(currentChat.messages).map((msgs, i) => (
-						<div key={i}>
-							<MessageGroup messages={msgs} />
-						</div>
-					))}
+				<div className="w-full h-full">
+					<div className="w-full overflow-auto panel h-5/6">
+						{currentChat.type === 0 ? <UserIntro user={currentChat.users[0]} /> : <></>}
+						{arrangeMessages(currentChat.messages).map((msgs, i) => (
+							<div key={i}>
+								<MessageGroup messages={msgs} />
+							</div>
+						))}
+					</div>
+					<div className="panel h-1/6">!!</div>
 				</div>
 			</div>
 		</div>
