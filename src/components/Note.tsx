@@ -1,4 +1,4 @@
-import { NoteClass } from "../../scripts/Classes";
+import { NoteClass } from "../scripts/Classes";
 import Bubble from "./Bubble";
 
 export default function Note({ note }: { note: NoteClass }) {
@@ -12,7 +12,9 @@ export default function Note({ note }: { note: NoteClass }) {
 						<div className={`${className} absolute w-10 h-10 rounded-full bg-neutral-800`}></div>
 					)
 				)}
-				<Bubble >{note.text} <span className="opacity-50">2m</span></Bubble>
+				<Bubble>
+					{note.text} <span className="opacity-50">2m</span>
+				</Bubble>
 			</div>
 		</div>
 	);

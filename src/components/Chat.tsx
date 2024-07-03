@@ -1,7 +1,7 @@
 import Name from "./Name";
 import pinIcon from "/icons/pin.svg";
 import groupIcon from "/icons/group.svg";
-import { ChatClass } from "../../scripts/Classes";
+import { ChatClass } from "../scripts/Classes";
 
 function Chat({ chat, isCurrent }: { chat: ChatClass; isCurrent: boolean }) {
 	const chatPreview = chat.lastMessage?.toIconPreview();

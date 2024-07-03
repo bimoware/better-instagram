@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
 import Chat from "./Chat";
-import { ChatClass } from "../../scripts/Classes";
+import { ChatClass } from "../scripts/Classes";
 function Chats({
 	chats,
 	current,

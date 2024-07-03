@@ -3,7 +3,7 @@ import copyIcon from "/icons/copy.svg";
 import replyIcon from "/icons/reply.svg";
 import editIcon from "/icons/edit.svg";
 import tuneIcon from "/icons/tune.svg";
-import { MessageClass } from "../../scripts/Classes";
+import { MessageClass } from "../scripts/Classes";
 import { Dispatch } from "react";
 
 export default function MessageMenu({

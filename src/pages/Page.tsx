@@ -3,12 +3,12 @@ import { useRef, useState } from "react";
 import client from "../scripts/Client.ts";
 import { arrangeMessages } from "../scripts/Util.ts";
 
-import Chats from "./components/Chats";
-import MessageGroup from "./components/MessageGroup.tsx";
-import Note from "./components/Note.tsx";
-import UserIntro from "./components/UserIntro.tsx";
-import MessageInput from "./components/MessageInput.tsx";
-import ScrollDown from "./components/ScrollDown.tsx";
+import Chats from "../components/Chats.tsx";
+import MessageGroup from "../components/MessageGroup.tsx";
+import Note from "../components/Note.tsx";
+import UserIntro from "../components/UserIntro.tsx";
+import MessageInput from "../components/MessageInput.tsx";
+import ScrollDown from "../components/ScrollDown.tsx";
 
 import emojiPickerData from "@emoji-mart/data";
 import EmojiPicker from "@emoji-mart/react";

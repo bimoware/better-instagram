@@ -4,8 +4,8 @@ import VoiceBubble from "./VoiceMessage";
 import VideoMessage from "./VideoMessage";
 import ImageMessage from "./ImageMessage";
 import redHeartIcon from "/emojis/red-heart.png";
-import { MessageClass } from "../../scripts/Classes";
-import { arrangeReactions, isOnlyEmojis, timeToString } from "../../scripts/Util";
+import { MessageClass } from "../scripts/Classes";
+import { arrangeReactions, isOnlyEmojis, timeToString } from "../scripts/Util";
 
 import moreIcon from "/icons/more.svg";
 import { useState } from "react";
@@ -83,10 +83,10 @@ export default function MessageLign({ message }: { message: MessageClass }) {
 			</div>
 			{message.reactions.length ? (
 				<div className="flex h-6 gap-2 mx-2">
-					{arrangeReactions(message.reactions).map((reactionList,i) => {
+					{arrangeReactions(message.reactions).map((reactionList, i) => {
 						return (
 							<div
-							key={i}
+								key={i}
 								className="flex bg-neutral-800 rounded-full w-fit h-full items-center
 						gap-1 px-2 select-none hover:cursor-pointer
 						-translate-y-2"
