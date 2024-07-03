@@ -49,10 +49,6 @@ group-hover:scale-110 transition rounded-full"
 	);
 }
 
-function NotificationArea(){
-	return <span>No notifications</span>
-}
-
 export default function SideBar() {
 	let linkGroups = [
 		[
@@ -79,13 +75,15 @@ export default function SideBar() {
         bg-neutral-900
 		flex flex-col justify-between"
 		>
+			{/* linkGroup = [topIcons, bottomIcons] */}
 			{linkGroups.map((linkGroup, i) => (
 				<div key={i} className="flex flex-col">
+					{/* linkGroup = [icon1, icon2, icon3] */}
 					{linkGroup.map((link, i) => (
 						<div key={i}>
-								<a href={link.href}>
-									<IconBox link={link} />
-								</a>
+							<a href={link.href}>
+								<IconBox link={link} />
+							</a>
 						</div>
 					))}
 				</div>
