@@ -22,7 +22,7 @@ export default function TestPage() {
 					<Note note={note} />
 				))}
 			</div>
-			<div className="flex h-5/6 overflow-y-clip">
+			<div className="flex h-5/6">
 				<div className="w-96 overflow-y-scroll overflow-x-hidden panel">
 					<Chats
 						setCurrentChat={setCurrentChatId}

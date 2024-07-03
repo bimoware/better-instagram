@@ -5,8 +5,9 @@ export default function MessageInput() {
 		<div className="bg-neutral-950 w-full rounded-3xl
         p-1 flex gap-1
         items-start min-h-8 h-fit
-        focus-within:border-4
-        focus-within:border-neutral-900">
+        border-4
+        border-neutral-900
+        focus-within:border-neutral-300">
 			<img
 				src={emojiIcon}
 				className="h-5/6 m-2 transition hover:scale-90 hover:cursor-pointer select-none"
