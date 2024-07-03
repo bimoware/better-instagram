@@ -9,8 +9,29 @@ import compassIcon from "/icons/compass.svg";
 import statsIcon from "/icons/stats.svg";
 import settingsIcon from "/icons/settings.svg";
 import notificationIcon from "/icons/notification.svg";
-
+import installIcon from "/icons/download_pc.svg";
 import Name from "./Name";
+
+const linkGroups = [
+	[
+		{ icon: homeIcon, label: "Home", href: "/" },
+		{ icon: notificationIcon, label: "Notifications", href: "/notifications" },
+		{ icon: inboxIcon, label: "Inbox", href: "/chat" },
+		{ icon: compassIcon, label: "Discover", href: "/discover" },
+		{ icon: installIcon, label: "Install App", href: "/" },
+	],
+	[
+		{ icon: statsIcon, label: "My statistics", href: "/stats/" },
+		{
+			icon: client.user.pfp,
+			// label: "My profile",
+			label: <Name displayName={client.user.displayName} add={client.user.username} />,
+			href: `/user/${client.user.id}`,
+			id: "user",
+		},
+		{ icon: settingsIcon, label: "Settings", href: "/settings" },
+	],
+];
 
 function IconBox({ link }: { link: any }) {
 	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -50,25 +71,6 @@ group-hover:scale-110 transition rounded-full"
 }
 
 export default function SideBar() {
-	let linkGroups = [
-		[
-			{ icon: homeIcon, label: "Home", href: "/" },
-			{ icon: notificationIcon, label: "Notifications", href: "/notifications" },
-			{ icon: inboxIcon, label: "Inbox", href: "/chat" },
-			{ icon: compassIcon, label: "Discover", href: "/discover" },
-		],
-		[
-			{ icon: statsIcon, label: "My statistics", href: "/stats/" },
-			{
-				icon: client.user.pfp,
-				// label: "My profile",
-				label: <Name displayName={client.user.displayName} add={client.user.username} />,
-				href: `/user/${client.user.id}`,
-				id: "user",
-			},
-			{ icon: settingsIcon, label: "Settings", href: "/settings" },
-		],
-	];
 	return (
 		<div
 			className="h-screen w-16 pt-10 pb-2
