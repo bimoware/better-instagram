@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Main from "./pages/Page.tsx";
-import TestPage from "./pages/TestPage.tsx";
+import Main from "./pages/chat/ChatPage.tsx";
+import TestPage from "./pages/test/TestPage.tsx";
 
 import "./global.css";
 import "./scripts/Client.ts";
