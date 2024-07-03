@@ -1,14 +1,22 @@
-import client from "../scripts/Client.ts";
-import Chats from "./components/Chats";
 import { useRef, useState } from "react";
+
+import client from "../scripts/Client.ts";
 import { arrangeMessages } from "../scripts/Util.ts";
+
+import Chats from "./components/Chats";
 import MessageGroup from "./components/MessageGroup.tsx";
 import Note from "./components/Note.tsx";
 import UserIntro from "./components/UserIntro.tsx";
 import MessageInput from "./components/MessageInput.tsx";
 import ScrollDown from "./components/ScrollDown.tsx";
 
+import emojiPickerData from "@emoji-mart/data";
+import EmojiPicker from "@emoji-mart/react";
+import { Popover } from "react-tiny-popover";
+
 export default function TestPage() {
+	const [isEmojiOpen, setIsEmojiOpen] = useState(false);
+	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 	const [currentChatId, setCurrentChatId] = useState(
 		Array.from(client.chats.values()).shift()?.id!
 	);
@@ -34,7 +42,7 @@ export default function TestPage() {
 					<div
 						onScroll={(e) => {
 							let el = e.currentTarget;
-							if(el.scrollHeight - el.scrollTop - el.clientHeight < 100){
+							if (el.scrollHeight - el.scrollTop - el.clientHeight < 100) {
 								setShowScrollBtn(false);
 							} else {
 								setShowScrollBtn(true);
@@ -49,13 +57,37 @@ export default function TestPage() {
 								<MessageGroup messages={msgs} />
 							</div>
 						))}
-						{showScrollBtn ? <ScrollDown
-							scroll={() => {
-								if (ref.current) ref.current.scrollTop = ref.current.scrollHeight;
-							}}
-						/> :<></>}
+						{showScrollBtn ? (
+							<ScrollDown
+								scroll={() => {
+									if (ref.current) ref.current.scrollTop = ref.current.scrollHeight;
+								}}
+							/>
+						) : (
+							<></>
+						)}
 					</div>
-					<MessageInput />
+
+					<Popover
+						// onClickOutside={() => setIsEmojiOpen(false)}
+						isOpen={isEmojiOpen}
+						positions={["top", "right", "left", "bottom"]}
+						content={() => (
+							<EmojiPicker
+								position={"absolute"}
+								data={emojiPickerData}
+								onEmojiSelect={(e: { native: string }) => {
+									if (textAreaRef.current) textAreaRef.current.value += e.native;
+								}}
+							/>
+						)}
+					>
+						<MessageInput
+							isEmojiPickerOpen={isEmojiOpen}
+							textAreaRef={textAreaRef}
+							setIsEmojiPickerOpen={setIsEmojiOpen}
+						/>
+					</Popover>
 				</div>
 			</div>
 		</div>
