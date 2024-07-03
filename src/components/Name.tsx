@@ -1,10 +1,10 @@
 export default function Name({
-	type,
+	type = 0,
 	add,
 	displayName,
 	className
 }: {
-	type: number; // 0: user, 1: group
+	type?: number; // 0: user, 1: group
 	add?: string;
 	displayName?: string;
 	className?:string;

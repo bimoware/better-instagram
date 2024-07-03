@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Main from "./pages/chat/ChatPage.tsx";
+import MainPage from "./pages/MainPage.tsx";
+import ChatPage from "./pages/chat/ChatPage.tsx";
 import TestPage from "./pages/test/TestPage.tsx";
 
 import "./global.css";
@@ -11,11 +12,11 @@ import "./scripts/Client.ts";
 const router = createBrowserRouter([
 	{
 		path: "/chat/",
-		element: <Main />,
+		element: <ChatPage />,
 	},
 	{
 		path: "/",
-		element: <Main />,
+		element: <MainPage />,
 	},
 	{
 		path: "/test",

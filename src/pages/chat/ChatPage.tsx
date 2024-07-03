@@ -69,11 +69,11 @@ export default function TestPage() {
 					</div>
 
 					<Popover
-						// onClickOutside={() => setIsEmojiOpen(false)}
 						isOpen={isEmojiOpen}
 						positions={["top", "right", "left", "bottom"]}
 						content={() => (
 							<EmojiPicker
+								isOpen={true}
 								position={"absolute"}
 								data={emojiPickerData}
 								onEmojiSelect={(e: { native: string }) => {
