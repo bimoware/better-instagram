@@ -4,36 +4,61 @@ import { useState } from "react";
 import client from "../scripts/Client";
 
 import homeIcon from "/icons/home.svg";
+import homeFilledIcon from "/icons/home_filled.svg";
 import inboxIcon from "/icons/inbox.svg";
+import inboxFilledIcon from "/icons/inbox_filled.svg";
 import compassIcon from "/icons/compass.svg";
+import compassFilledIcon from "/icons/compass_filled.svg";
 import statsIcon from "/icons/stats.svg";
 import settingsIcon from "/icons/settings.svg";
 import notificationIcon from "/icons/notification.svg";
+import notificationFilledIcon from "/icons/notification_filled.svg";
 import installIcon from "/icons/download_pc.svg";
 import Name from "./Name";
 
 const linkGroups = [
 	[
-		{ icon: homeIcon, label: "Home", href: "/" },
-		{ icon: notificationIcon, label: "Notifications", href: "/notifications" },
-		{ icon: inboxIcon, label: "Inbox", href: "/chat" },
-		{ icon: compassIcon, label: "Discover", href: "/discover" },
-		{ icon: installIcon, label: "Install App", href: "/" },
+		{
+			icons: {
+				filled: homeFilledIcon,
+				outline: homeIcon,
+			},
+			label: "Home",
+			href: "/",
+		},
+		{
+			icons: { filled: notificationFilledIcon, outline: notificationIcon },
+			label: "Notifications",
+			href: "/notifications",
+		},
+		{ icons: { filled: inboxFilledIcon, outline: inboxIcon }, label: "Inbox", href: "/chat" },
+		{
+			icons: {
+				filled: compassFilledIcon,
+				outline: compassIcon,
+			},
+			label: "Discover",
+			href: "/discover",
+		},
+		{ icons: { filled: installIcon, outline: installIcon }, label: "Install App", href: "/" },
 	],
 	[
-		{ icon: statsIcon, label: "My statistics", href: "/stats/" },
+		{ icons: { filled: statsIcon, outline: statsIcon }, label: "My statistics", href: "/stats" },
 		{
-			icon: client.user.pfp,
-			// label: "My profile",
+			icons: { filled: client.user.pfp, outline: client.user.pfp },
 			label: <Name displayName={client.user.displayName} add={client.user.username} />,
-			href: `/user/${client.user.id}`,
+			href: `user/${client.user.id}`,
 			id: "user",
 		},
-		{ icon: settingsIcon, label: "Settings", href: "/settings" },
+		{
+			icons: { filled: settingsIcon, outline: settingsIcon },
+			label: "Settings",
+			href: "/settings",
+		},
 	],
 ];
 
-function IconBox({ link }: { link: any }) {
+function IconBox({ link, path }: { link: any; path: string }) {
 	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 	return (
 		<Popover
@@ -62,9 +87,9 @@ hover:bg-neutral-400 hover:bg-opacity-5 rounded-2xl group
 ${link.id === "user" ? "" : "m-1"}`}
 			>
 				<img
-					className="w-full p-3
-group-hover:scale-110 transition rounded-full"
-					src={link.icon}
+					className="w-full p-2
+					group-hover:scale-110 transition rounded-full"
+					src={link.icons[path === link.href ? "filled" : "outline"]}
 				/>
 			</div>
 		</Popover>
@@ -72,6 +97,7 @@ group-hover:scale-110 transition rounded-full"
 }
 
 export default function SideBar() {
+	let path = window.location.pathname;
 	return (
 		<div
 			className="h-screen w-[5%] flex-none
@@ -86,7 +112,7 @@ export default function SideBar() {
 					{linkGroup.map((link, i) => (
 						<div key={i}>
 							<a href={link.href}>
-								<IconBox link={link} />
+								<IconBox link={link} path={path} />
 							</a>
 						</div>
 					))}

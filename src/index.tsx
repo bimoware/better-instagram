@@ -9,6 +9,7 @@ import TestPage from "./pages/test/TestPage.tsx";
 import "./global.css";
 import "./scripts/Client.ts";
 import SideBar from "./components/SideBar.tsx";
+
 // Creating the route for the browser
 const router = createBrowserRouter([
 	{
@@ -25,11 +26,13 @@ const router = createBrowserRouter([
 	},
 ]);
 
+
+
 // Root
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
 		<div className="flex h-screen w-screen">
-			<SideBar />
+			<SideBar/>
 			<div className="block"><RouterProvider router={router} /></div>
 		</div>
 	</React.StrictMode>
