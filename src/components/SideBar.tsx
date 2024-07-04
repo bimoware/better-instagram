@@ -74,7 +74,8 @@ group-hover:scale-110 transition rounded-full"
 export default function SideBar() {
 	return (
 		<div
-			className="h-screen w-16 pt-10 pb-2
+			className="h-screen w-[5%] flex-none
+			pt-10 pb-2
         bg-neutral-900
 		flex flex-col justify-between"
 		>
