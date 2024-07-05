@@ -100,7 +100,7 @@ export default function SideBar() {
 	let path = window.location.pathname;
 	return (
 		<div
-			className="h-screen w-[5%] flex-none
+			className="h-screen w-14 flex-none
 			pt-10 pb-2
         bg-neutral-900
 		flex flex-col justify-between"
