@@ -14,7 +14,7 @@ export default function MessageInput({
 		<div
 			className="bg-neutral-950 w-full rounded-3xl
         p-1 flex gap-1
-        items-start min-h-8 h-fit
+        items-start h-fit
         border-4
         border-neutral-900
         focus-within:border-neutral-300"
@@ -31,7 +31,6 @@ export default function MessageInput({
                 self-center
             bg-neutral-950
             w-full
-            min-h-full
             rounded-md
             resize-none"
 				contentEditable
