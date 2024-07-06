@@ -25,12 +25,12 @@ export default function TestPage() {
 	const ref = useRef<HTMLDivElement>(null);
 	return (
 		<div className="h-screen">
-			<div className="flex h-1/6 panel gap-1">
+			<div className="flex h-[20%] panel gap-1">
 				{client.notes.map((note) => (
 					<Note note={note} />
 				))}
 			</div>
-			<div className="flex h-5/6">
+			<div className="flex h-[80%]">
 				<div className="w-96 overflow-y-scroll overflow-x-hidden panel">
 					<Chats
 						setCurrentChat={setCurrentChatId}
@@ -38,7 +38,7 @@ export default function TestPage() {
 						chats={Array.from(client.chats.values())}
 					/>
 				</div>
-				<div className="w-full">
+				<div className="w-full overflow-hidden">
 					<div
 						onScroll={(e) => {
 							let el = e.currentTarget;
@@ -48,7 +48,7 @@ export default function TestPage() {
 								setShowScrollBtn(true);
 							}
 						}}
-						className="overflow-y-scroll h-[75vh] panel scroll-smooth flex flex-col"
+						className="overflow-y-scroll h-[90%] panel scroll-smooth flex flex-col"
 						ref={ref}
 					>
 						{currentChat.type === 0 ? <UserIntro user={currentChat.users[0]} /> : <></>}
@@ -82,11 +82,13 @@ export default function TestPage() {
 							/>
 						)}
 					>
+						<div className="h-[10%]">
 						<MessageInput
 							isEmojiPickerOpen={isEmojiOpen}
 							textAreaRef={textAreaRef}
 							setIsEmojiPickerOpen={setIsEmojiOpen}
 						/>
+						</div>
 					</Popover>
 				</div>
 			</div>
