@@ -2,8 +2,47 @@
 	{
 		"id": "34",
 		"userId": "6",
-		"name": "Pokémon Scarlet and Violet",
 		"device": "Nintendo Switch",
-		"action": "Fighting "
+		"type": "Playing",
+		"data": {
+			"name": "Pokémon Scarlet and Violet",
+			"buttons": [{ "label": "Profile & Pokedex", "type": "Secondary" }]
+		}
+	},
+	{
+		"id": "35",
+		"userId": "7",
+		"device": "PC",
+		"type": "Playing",
+		"data": {
+			"name": "Genshin Impact",
+			"state": "Sumeru (Multiplayer)",
+			"buttons": [
+				{ "label": "Join Multiplayer", "type": "Primary" },
+				{ "label": "Profile", "type": "Secondary" }
+			]
+		}
+	},
+	{
+		"id": "36",
+		"userId": "Shoto",
+		"device": "iPhone 12 mini",
+		"type": "Watching",
+		"add": {
+			"name": "Youtube",
+            "add": "Did Discord just make scamming easier?",
+            "author": "No Text To Speech",
+            "link": "https://youtu.be/4tO2Js20D6Q?si=AVu5_hwDqf9WbpG3",
+			"buttons": [
+				{
+					"label": "Watch together",
+					"type": "Primary"
+				},
+				{
+					"label": "Watch",
+					"type": "Secondary"
+				}
+			]
+		}
 	}
 ]
