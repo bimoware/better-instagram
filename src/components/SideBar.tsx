@@ -13,6 +13,7 @@ import statsIcon from "/icons/stats.svg";
 import settingsIcon from "/icons/settings.svg";
 import notificationIcon from "/icons/notification.svg";
 import notificationFilledIcon from "/icons/notification_filled.svg";
+import searchIcon from "/icons/search.svg";
 import installIcon from "/icons/download_pc.svg";
 import Name from "./Name";
 
@@ -26,12 +27,17 @@ const linkGroups = [
 			label: "Home",
 			href: "/",
 		},
+		{ icons: { filled: inboxFilledIcon, outline: inboxIcon }, label: "Inbox", href: "/chat" },
 		{
 			icons: { filled: notificationFilledIcon, outline: notificationIcon },
 			label: "Notifications",
 			href: "/notifications",
 		},
-		{ icons: { filled: inboxFilledIcon, outline: inboxIcon }, label: "Inbox", href: "/chat" },
+		{
+			icons: { filled: searchIcon, outline: searchIcon },
+			label: "Search",
+			href: "/search",
+		},
 		{
 			icons: {
 				filled: compassFilledIcon,
@@ -40,14 +46,14 @@ const linkGroups = [
 			label: "Discover",
 			href: "/discover",
 		},
-		{ icons: { filled: installIcon, outline: installIcon }, label: "Install App", href: "/" },
 	],
 	[
+		{ icons: { filled: installIcon, outline: installIcon }, label: "Install App", href: "/" },
 		{ icons: { filled: statsIcon, outline: statsIcon }, label: "My statistics", href: "/stats" },
 		{
 			icons: { filled: client.user.pfp, outline: client.user.pfp },
 			label: <Name displayName={client.user.displayName} add={client.user.username} />,
-			href: `user/${client.user.id}`,
+			href: `/@${client.user.username}`,
 			id: "user",
 		},
 		{
@@ -100,24 +106,30 @@ export default function SideBar() {
 	let path = window.location.pathname;
 	return (
 		<div
-			className="h-screen w-14 flex-none
-			pt-10 pb-2
-        bg-neutral-900
-		flex flex-col justify-between"
+			className="h-full w-16 flex-none
+			justify-center
+			py-4
+		"
 		>
-			{/* linkGroup = [topIcons, bottomIcons] */}
-			{linkGroups.map((linkGroup, i) => (
-				<div key={i} className="flex flex-col">
-					{/* linkGroup = [icon1, icon2, icon3] */}
-					{linkGroup.map((link, i) => (
-						<div key={i}>
-							<a href={link.href}>
-								<IconBox link={link} path={path} />
-							</a>
-						</div>
-					))}
-				</div>
-			))}
+			<div
+				className="flex flex-col justify-between bg-neutral-900
+			h-full mx-2 justify-self-center
+			rounded-xl"
+			>
+				{/* linkGroup = [topIcons, bottomIcons] */}
+				{linkGroups.map((linkGroup, i) => (
+					<div key={i} className="flex flex-col">
+						{/* linkGroup = [icon1, icon2, icon3] */}
+						{linkGroup.map((link, i) => (
+							<div key={i}>
+								<a href={link.href}>
+									<IconBox link={link} path={path} />
+								</a>
+							</div>
+						))}
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }
