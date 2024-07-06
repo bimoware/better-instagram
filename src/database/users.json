@@ -4,7 +4,7 @@
         "pfp": "/images/1.png",
         "username": "izuku.midoriya",
         "displayName": "Deku",
-        "followers": ["4","6","7"],
+        "followers": ["4","6","7","31"],
         "isSelf": true
     },
     {
@@ -34,5 +34,26 @@
         "username": "ochaco.uraraka",
         "displayName": "Uravity",
         "followers":["3","6"]
+    },
+    {
+        "id": "31",
+        "pfp": "/images/7.png",
+        "username":"tokoyami.fumikage",
+        "displayName":"Bird Person",
+        "followers": ["3"]
+    },
+    {
+        "id":"32",
+        "pfp": "/images/mina.jpg",
+        "username":"mina.ashido",
+        "displayName":"Pinky",
+        "followers": []
+    },
+    {
+        "id":"33",
+        "pfp":"/images/jiro.jpg",
+        "username": "kyoka.jiro",
+        "displayName":"DJ Jiro",
+        "followers": []
     }
 ]
