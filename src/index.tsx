@@ -31,9 +31,11 @@ const router = createBrowserRouter([
 // Root
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
-		<div className="flex h-screen w-screen">
+		<div className="flex h-screen">
 			<SideBar/>
-			<div className="block"><RouterProvider router={router} /></div>
+			<div className="w-[95%]">
+				<RouterProvider router={router} />
+			</div>
 		</div>
 	</React.StrictMode>
 );
