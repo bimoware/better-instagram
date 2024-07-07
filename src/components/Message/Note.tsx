@@ -1,4 +1,4 @@
-import { NoteClass } from "../scripts/Classes";
+import { NoteClass } from "../../scripts/Classes";
 import Bubble from "./Bubble";
 
 export default function Note({ note }: { note: NoteClass }) {

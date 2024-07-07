@@ -2,9 +2,10 @@ import { ReactNode } from "react";
 import { ArrowContainer, Popover } from "react-tiny-popover";
 import { useState } from "react";
 
-import { ActivityClass, UserClass } from "../scripts/Classes";
+import { ActivityClass, PostClass, UserClass } from "../scripts/Classes";
 import client from "../scripts/Client";
 
+import GroupIcon from "./GroupIcon";
 import Name from "./Name";
 import Badge from "./Badge";
 
@@ -15,7 +16,10 @@ import phoneIcon from "/icons/phone.svg";
 import pcIcon from "/icons/pc.svg";
 import switchIcon from "/icons/switch.svg";
 import starIcon from "/icons/star.svg";
-import GroupIcon from "./GroupIcon";
+import postsIcon from "/icons/posts.svg";
+import flagIcon from "/icons/flag.svg";
+import moreIcon from "/icons/more.svg";
+import likeIcon from "/icons/heart.svg";
 export default function Box({
 	className,
 	children,
@@ -50,6 +54,41 @@ export default function Box({
 	);
 }
 
+export function PostList() {
+	return (
+		<Box title="Posts" icon={postsIcon} className="bg-transparent *:bg-neutral-900">
+			{client.posts.map((post) => (
+				<Post post={post} />
+			))}
+		</Box>
+	);
+}
+
+export function Post({ post }: { post: PostClass }) {
+	return (
+		<div className="w-fit p-4 rounded-xl flex flex-col gap-2">
+			{/* Header */}
+			<div className="flex justify-between">
+				<div className="flex items-center gap-2">
+					<img className="w-10 rounded-full" src={post.user.pfp} />
+					<Name type={0} displayName={post.user.displayName} add={post.user.username} />
+				</div>
+				<div className="flex items-center gap-2 *:opacity-50">
+					<img className="hover:opacity-70 hover:cursor-pointer" src={flagIcon} />
+					<img className="hover:opacity-70 hover:cursor-pointer" src={moreIcon} />
+				</div>
+			</div>
+			{/* Content */}
+			<div>
+				<img className="rounded-xl" src={post.files[0]} />
+			</div>
+			{/* Buttons */}
+			<div className="*:opacity-50">
+				<img src={likeIcon} className="hover:opacity-70 hover:cursor-pointer" />
+			</div>
+		</div>
+	);
+}
 export function ActivityList() {
 	const activities = client.activities;
 	return (

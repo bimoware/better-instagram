@@ -9,6 +9,7 @@ export class ClientClass {
 	reactions: ReactionClass[];
 	notes: NoteClass[];
 	activities: ActivityClass[];
+	posts: PostClass[]
 	constructor(public userId: string) {
 		this.chats = [];
 		this.users = [];
@@ -16,6 +17,7 @@ export class ClientClass {
 		this.reactions = [];
 		this.notes = [];
 		this.activities = [];
+		this.posts = []
 	}
 	get user() {
 		return this.users.find((user) => user.id === this.userId)!;
@@ -27,6 +29,7 @@ export class ClientClass {
 		reactions,
 		notes,
 		activities,
+		posts
 	}: {
 		messages: MessageClass[];
 		users: UserClass[];
@@ -34,6 +37,7 @@ export class ClientClass {
 		reactions: ReactionClass[];
 		notes: NoteClass[];
 		activities: ActivityClass[];
+		posts: PostClass[]
 	}) {
 		chats.forEach((chat) => this.chats.push(chat));
 		users.forEach((user) => this.users.push(user));
@@ -41,6 +45,7 @@ export class ClientClass {
 		reactions.forEach((reaction) => this.reactions.push(reaction));
 		notes.forEach((note) => this.notes.push(note));
 		activities.forEach((activity) => this.activities.push(activity));
+		posts.forEach(post => this.posts.push(post));
 	}
 }
 
@@ -180,8 +185,20 @@ export class ActivityClass {
 			state?: string;
 			author?: string;
 			buttons?: { label: string; type: string }[];
-			with?: string[]
+			with?: string[];
 		}
+	) {}
+	get user() {
+		return this.client.users.find((user) => user.id === this.userId)!;
+	}
+}
+
+export class PostClass {
+	constructor(
+		public client: ClientClass,
+		public id: string,
+		public userId: string,
+		public files: string[]
 	) {}
 	get user() {
 		return this.client.users.find((user) => user.id === this.userId)!;

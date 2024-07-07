@@ -1,6 +1,6 @@
 import MessageLign from "./MessageLign";
-import { MessageClass } from "../scripts/Classes";
-import Name from "./Name";
+import { MessageClass } from "../../scripts/Classes";
+import Name from "../Name";
 
 export default function MessageGroup({ messages }: { messages: MessageClass[] }) {
 	return (

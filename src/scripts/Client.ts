@@ -6,6 +6,7 @@ import {
 	UserClass,
 	NoteClass,
 	ActivityClass,
+	PostClass
 } from "./Classes";
 
 import chatData from "../database/chats.json";
@@ -13,8 +14,8 @@ import userData from "../database/users.json";
 import messageData from "../database/messages.json";
 import reactionData from "../database/reactions.json";
 import noteData from "../database/notes.json";
-
 import activityData from "../database/activities.json";
+import postData from "../database/posts.json";
 
 let client = new ClientClass("3");
 const chats = chatData.map(
@@ -82,6 +83,15 @@ const activities = activityData.map(
 		)
 );
 
-client.setData({ messages, users, chats, reactions, notes, activities });
+const posts = postData.map(
+	post => new PostClass(
+		client,
+		post.id,
+		post.userId,
+		post.files
+	)
+)
+
+client.setData({ messages, users, chats, reactions, notes, activities, posts });
 Object.defineProperty(window, "client", client);
 export default client;

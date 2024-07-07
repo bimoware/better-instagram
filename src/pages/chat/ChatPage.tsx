@@ -4,11 +4,11 @@ import client from "../../scripts/Client.ts";
 import { arrangeMessages } from "../../scripts/Util.ts";
 
 import Chats from "../../components/Chats.tsx";
-import MessageGroup from "../../components/MessageGroup.tsx";
-import Note from "../../components/Note.tsx";
-import UserIntro from "../../components/UserIntro.tsx";
-import MessageInput from "../../components/MessageInput.tsx";
-import ScrollDown from "../../components/ScrollDown.tsx";
+import MessageGroup from "../../components/Message/MessageGroup.tsx";
+import Note from "../../components/Message/Note.tsx";
+import UserIntro from "../../components/Message/UserIntro.tsx";
+import MessageInput from "../../components/Message/MessageInput.tsx";
+import ScrollDown from "../../components/Message/ScrollDown.tsx";
 
 import emojiPickerData from "@emoji-mart/data";
 import EmojiPicker from "@emoji-mart/react";
@@ -83,11 +83,11 @@ export default function TestPage() {
 						)}
 					>
 						<div className="h-[10%]">
-						<MessageInput
-							isEmojiPickerOpen={isEmojiOpen}
-							textAreaRef={textAreaRef}
-							setIsEmojiPickerOpen={setIsEmojiOpen}
-						/>
+							<MessageInput
+								isEmojiPickerOpen={isEmojiOpen}
+								textAreaRef={textAreaRef}
+								setIsEmojiPickerOpen={setIsEmojiOpen}
+							/>
 						</div>
 					</Popover>
 				</div>

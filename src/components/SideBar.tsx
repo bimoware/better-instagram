@@ -15,6 +15,7 @@ import notificationIcon from "/icons/notification.svg";
 import notificationFilledIcon from "/icons/notification_filled.svg";
 import searchIcon from "/icons/search.svg";
 import installIcon from "/icons/download_pc.svg";
+import addIcon from "/icons/add.svg";
 import Name from "./Name";
 
 const linkGroups = [
@@ -26,6 +27,9 @@ const linkGroups = [
 			},
 			label: "Home",
 			href: "/",
+		},
+		{
+			icons: { filled: addIcon, outline: addIcon, label: "Create", href: "/create" },
 		},
 		{ icons: { filled: inboxFilledIcon, outline: inboxIcon }, label: "Inbox", href: "/chat" },
 		{
@@ -106,7 +110,8 @@ export default function SideBar() {
 	let path = window.location.pathname;
 	return (
 		<div
-			className="h-full w-16 flex-none
+			className="h-full w-16
+			fixed
 			justify-center
 			py-4
 		"

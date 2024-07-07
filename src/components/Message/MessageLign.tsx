@@ -1,12 +1,12 @@
 import { ArrowContainer, Popover } from "react-tiny-popover";
 import { useRef, useState, useEffect } from "react";
 
-import { MessageClass } from "../scripts/Classes";
-import { arrangeReactions, isOnlyEmojis, timeToString } from "../scripts/Util";
+import { MessageClass } from "../../scripts/Classes";
+import { arrangeReactions, isOnlyEmojis, timeToString } from "../../scripts/Util";
 
 import Bubble from "./Bubble";
 import MessageMenu from "./MessageMenu";
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "../ProgressBar";
 
 import fullscreenExitIcon from "/icons/fullscreen_exit.svg";
 import fullscreenIcon from "/icons/fullscreen.svg";
@@ -18,10 +18,14 @@ import playIcon from "/icons/play.svg";
 import pause from "/icons/pause.svg";
 import play from "/icons/play.svg";
 
-export function ImageMessage({ file }: { file:string}) {
-    return <img className="max-w-64 rounded-3xl
-    transition hover:-translate-y-1 hover:-rotate-2 hover:cursor-pointer" 
-    src={file}/>
+export function ImageMessage({ file }: { file: string }) {
+	return (
+		<img
+			className="max-w-64 rounded-3xl
+    transition hover:-translate-y-1 hover:-rotate-2 hover:cursor-pointer"
+			src={file}
+		/>
+	);
 }
 export function VideoPlayer({ file }: { file: string }) {
 	const [isPlaying, setPlaying] = useState(false);

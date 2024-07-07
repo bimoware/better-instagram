@@ -1,6 +1,6 @@
-import { UserClass } from "../scripts/Classes";
-import GroupIcon from "./GroupIcon";
-import Name from "./Name";
+import { UserClass } from "../../scripts/Classes";
+import GroupIcon from "../GroupIcon";
+import Name from "../Name";
 
 export default function UserIntro({ user }: { user: UserClass }) {
 	return (
