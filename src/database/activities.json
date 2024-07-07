@@ -2,37 +2,40 @@
 	{
 		"id": "34",
 		"userId": "6",
-		"device": "Nintendo Switch",
-		"type": "Playing",
+		"device": "switch",
+		"type": "Fighting in",
+		"name": "Pokémon Scarlet and Violet",
 		"data": {
-			"name": "Pokémon Scarlet and Violet",
-			"buttons": [{ "label": "Profile & Pokedex", "type": "Secondary" }]
+			"state": "Paldéa",
+			"buttons": [
+				{ "label": "Profile", "type": "Secondary" },
+				{ "label": "Pokedex", "type": "Secondary" }
+			]
 		}
 	},
 	{
 		"id": "35",
 		"userId": "7",
-		"device": "PC",
+		"device": "pc",
 		"type": "Playing",
+		"name": "Genshin Impact",
 		"data": {
-			"name": "Genshin Impact",
 			"state": "Sumeru (Multiplayer)",
 			"buttons": [
-				{ "label": "Join Multiplayer", "type": "Primary" },
+				{ "label": "Ask to Join", "type": "Primary" },
 				{ "label": "Profile", "type": "Secondary" }
 			]
 		}
 	},
 	{
 		"id": "36",
-		"userId": "Shoto",
-		"device": "iPhone 12 mini",
+		"userId": "4",
+		"device": "mobile",
 		"type": "Watching",
-		"add": {
-			"name": "Youtube",
-            "add": "Did Discord just make scamming easier?",
-            "author": "No Text To Speech",
-            "link": "https://youtu.be/4tO2Js20D6Q?si=AVu5_hwDqf9WbpG3",
+		"name": "Youtube",
+		"data": {
+			"state": "Did Discord just make scamming easier?",
+			"author": "No Text To Speech",
 			"buttons": [
 				{
 					"label": "Watch together",
