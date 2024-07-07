@@ -8,14 +8,14 @@ export class ClientClass {
 	messages: MessageClass[];
 	reactions: ReactionClass[];
 	notes: NoteClass[];
-	constructor(
-		public userId: string,
-	) {
+	activities: ActivityClass[];
+	constructor(public userId: string) {
 		this.chats = [];
 		this.users = [];
 		this.messages = [];
 		this.reactions = [];
 		this.notes = [];
+		this.activities = [];
 	}
 	get user() {
 		return this.users.find((user) => user.id === this.userId)!;
@@ -25,19 +25,22 @@ export class ClientClass {
 		users,
 		chats,
 		reactions,
-		notes
+		notes,
+		activities,
 	}: {
 		messages: MessageClass[];
 		users: UserClass[];
 		chats: ChatClass[];
 		reactions: ReactionClass[];
 		notes: NoteClass[];
+		activities: ActivityClass[];
 	}) {
 		chats.forEach((chat) => this.chats.push(chat));
 		users.forEach((user) => this.users.push(user));
 		messages.forEach((msg) => this.messages.push(msg));
 		reactions.forEach((reaction) => this.reactions.push(reaction));
 		notes.forEach((note) => this.notes.push(note));
+		activities.forEach((activity) => this.activities.push(activity));
 	}
 }
 
@@ -76,8 +79,8 @@ export class UserClass {
 		public followerIds: string[],
 		public isSelf?: boolean
 	) {}
-	get followers(){
-		return this.followerIds.map(id => this.client.users.find(user => user.id === id)!);
+	get followers() {
+		return this.followerIds.map((id) => this.client.users.find((user) => user.id === id)!);
 	}
 }
 
@@ -111,16 +114,18 @@ export class MessageClass {
 		this._reactions = this._reactions || [];
 	}
 	get chat() {
-		return this.client.chats.find(chat => chat.id === this.chatId)!;
+		return this.client.chats.find((chat) => chat.id === this.chatId)!;
 	}
 	get needsBubble() {
-		return (/^\p{Extended_Pictographic}+$/u).test(this.data);
+		return /^\p{Extended_Pictographic}+$/u.test(this.data);
 	}
 	get reactions() {
-		return this._reactions.map((reactionId) => this.client.reactions.find(reaction => reaction.id === reactionId)!);
+		return this._reactions.map(
+			(reactionId) => this.client.reactions.find((reaction) => reaction.id === reactionId)!
+		);
 	}
 	get reply() {
-		return this.client.messages.find(message => message.id === this.replyId)!;
+		return this.client.messages.find((message) => message.id === this.replyId)!;
 	}
 	get user() {
 		return this.client.users.find((user) => user.id === this.userId)!;
@@ -154,9 +159,29 @@ export class MessageClass {
 export class NoteClass {
 	constructor(
 		public client: ClientClass,
-		public id: string, 
+		public id: string,
 		public userId: string,
 		public text: string
+	) {}
+	get user() {
+		return this.client.users.find((user) => user.id === this.userId)!;
+	}
+}
+
+export class ActivityClass {
+	constructor(
+		public client: ClientClass,
+		public id: string,
+		public userId: string,
+		public name: string,
+		public type: string,
+		public device: string,
+		public data: {
+			state?: string;
+			author?: string;
+			buttons?: { label: string; type: string }[];
+			with?: string[]
+		}
 	) {}
 	get user() {
 		return this.client.users.find((user) => user.id === this.userId)!;
