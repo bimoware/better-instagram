@@ -55,10 +55,10 @@ export class ChatClass {
 		public id: string,
 		public type: number,
 		public _users: string[],
+		public pinned: boolean,
 		public icon?: string,
 		public name?: string,
-		public seen?: boolean,
-		public pinned?: boolean
+		public seen?: boolean
 	) {
 		this.seen = seen ?? true;
 		this.pinned = seen ?? false;
@@ -86,6 +86,9 @@ export class UserClass {
 	) {}
 	get followers() {
 		return this.followerIds.map((id) => this.client.users.find((user) => user.id === id)!);
+	}
+	get activities() {
+		return this.client.activities.filter((activity) => activity.userId === this.id);
 	}
 }
 

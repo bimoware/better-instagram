@@ -25,10 +25,10 @@ const chats = chatData.map(
 			chat.id,
 			chat.type,
 			chat.userIds,
+			chat.pinned ?? false,
 			chat.icon,
 			chat.name,
 			chat.seen ?? true,
-			chat.pinned ?? false
 		)
 );
 const users = userData.map(

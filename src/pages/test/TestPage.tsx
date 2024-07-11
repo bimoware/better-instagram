@@ -1,10 +1,10 @@
 import Badge from "../../components/Badge";
-import pfp from "/images/1.png";
-import badge from "/icons/phone.svg";
+import pfp from "/images/4.png";
+import create from "/icons/create.svg";
 export default function TestPage() {
 	return (
-		<Badge badge={badge}>
-			<img className="rounded-full" src={pfp} />
+		<Badge badge={create}>
+			<img className="rounded-full size-14" src={pfp} />
 		</Badge>
 	);
 }

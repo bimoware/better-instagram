@@ -14,8 +14,10 @@ import settingsIcon from "/icons/settings.svg";
 import notificationIcon from "/icons/notification.svg";
 import notificationFilledIcon from "/icons/notification_filled.svg";
 import searchIcon from "/icons/search.svg";
-import installIcon from "/icons/download_pc.svg";
-import addIcon from "/icons/add.svg";
+import groupIcon from "/icons/group.svg";
+import groupFilledIcon from "/icons/group_filled.svg";
+// import installIcon from "/icons/download_pc.svg";
+// import addIcon from "/icons/add.svg";
 import Name from "./Name";
 
 const linkGroups = [
@@ -28,10 +30,13 @@ const linkGroups = [
 			label: "Home",
 			href: "/",
 		},
-		{
-			icons: { filled: addIcon, outline: addIcon, label: "Create", href: "/create" },
-		},
-		{ icons: { filled: inboxFilledIcon, outline: inboxIcon }, label: "Inbox", href: "/chat" },
+		// {
+		// 	icons: { filled: addIcon, outline: addIcon },
+		// 	label: "Create",
+		// 	href: "/create",
+		// },
+		{ icons: { filled: inboxFilledIcon, outline: inboxIcon }, label: "Private Messages", href: "/chat" },
+		{ icons: { filled: groupFilledIcon, outline: groupIcon }, label: "Communities", href: "/servers" },
 		{
 			icons: { filled: notificationFilledIcon, outline: notificationIcon },
 			label: "Notifications",
@@ -52,13 +57,14 @@ const linkGroups = [
 		},
 	],
 	[
-		{ icons: { filled: installIcon, outline: installIcon }, label: "Install App", href: "/" },
+		// { icons: { filled: installIcon, outline: installIcon }, label: "Install App", href: "/" },
 		{ icons: { filled: statsIcon, outline: statsIcon }, label: "My statistics", href: "/stats" },
 		{
 			icons: { filled: client.user.pfp, outline: client.user.pfp },
 			label: <Name displayName={client.user.displayName} add={client.user.username} />,
 			href: `/@${client.user.username}`,
 			id: "user",
+			rounded: true
 		},
 		{
 			icons: { filled: settingsIcon, outline: settingsIcon },
@@ -68,7 +74,7 @@ const linkGroups = [
 	],
 ];
 
-function IconBox({ link, path }: { link: any; path: string }) {
+function IconBox({ link, path, rounded = false }: { link: any; path: string, rounded?:boolean; }) {
 	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 	return (
 		<Popover
@@ -97,8 +103,8 @@ hover:bg-neutral-400 hover:bg-opacity-5 rounded-2xl group
 ${link.id === "user" ? "" : "m-1"}`}
 			>
 				<img
-					className="w-full p-2
-					group-hover:scale-110 transition rounded-full"
+					className={`w-full p-2
+					group-hover:scale-110 transition ${rounded ? "rounded-full" : ""}`}
 					src={link.icons[path === link.href ? "filled" : "outline"]}
 				/>
 			</div>
@@ -110,31 +116,23 @@ export default function SideBar() {
 	let path = window.location.pathname;
 	return (
 		<div
-			className="h-full w-16
-			fixed
-			justify-center
-			py-4
-		"
-		>
-			<div
-				className="flex flex-col justify-between bg-neutral-900
+			className="flex flex-col justify-between bg-neutral-900
 			h-full mx-2 justify-self-center
 			rounded-xl"
-			>
-				{/* linkGroup = [topIcons, bottomIcons] */}
-				{linkGroups.map((linkGroup, i) => (
-					<div key={i} className="flex flex-col">
-						{/* linkGroup = [icon1, icon2, icon3] */}
-						{linkGroup.map((link, i) => (
-							<div key={i}>
-								<a href={link.href}>
-									<IconBox link={link} path={path} />
-								</a>
-							</div>
-						))}
-					</div>
-				))}
-			</div>
+		>
+			{/* linkGroup = [topIcons, bottomIcons] */}
+			{linkGroups.map((linkGroup, i) => (
+				<div key={i} className="flex flex-col">
+					{/* linkGroup = [icon1, icon2, icon3] */}
+					{linkGroup.map((link, i) => (
+						<div key={i}>
+							<a href={link.href}>
+								<IconBox link={link} path={path} rounded={link.rounded} />
+							</a>
+						</div>
+					))}
+				</div>
+			))}
 		</div>
 	);
 }

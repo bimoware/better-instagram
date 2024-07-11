@@ -27,18 +27,18 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "/settings",
-		element: <SettingsPage/>
-	}
+		element: <SettingsPage />,
+	},
 ]);
-
-
 
 // Root
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
-		<div className="flex h-screen">
-			<SideBar/>
-			<div className="ml-[5%]">
+		<div className="flex h-screen w-screen">
+			<div className="h-full w-16 fixed justify-center py-4">
+				<SideBar />
+			</div>
+			<div className="w-screen pl-16 p-4">
 				<RouterProvider router={router} />
 			</div>
 		</div>
